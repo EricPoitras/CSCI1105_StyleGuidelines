@@ -1,0 +1,431 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/themes/prism-coy.css">
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/plugins/autoloader/prism-autoloader.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+  </head>
+
+  <body>
+    
+
+    <div class="container p-3 my-3 bg-dark text-white">
+      <h1  class="display-3">CSCI 1105 Coding Style Guidelines</h1>
+    </div>
+    <div class="container  p-3 my-3 border">
+
+      <h2>Why are you here?</h2>
+      <p>
+        Hello! If you reached this page it (probably) means that you are enrolled in CSCI 1105, so welcome!
+        <br>
+        <br>In this page you will find code examples of the coding guidelines you should follow in CSCI 1105. This comprehensive guide was adapted from a previous version authored by Juliano Franz. 
+        <br>
+        <br> This page serves as an informal guide for examples on how to organize and comment your code in the course
+
+      </p>
+    </div>
+    <nav class="container navbar navbar-expand-md bg-dark navbar-dark sticky-top">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item nav-link"><a class="text-white" href="#general">General</a></li>
+            <li class="nav-item nav-link"><a class="text-white" href="#comments">Comments</a></li>
+            <li class="nav-item nav-link"><a class="text-white" href="#naming">Naming</a></li>
+            <li class="nav-item nav-link"><a class="text-white" href="#brackets">Brackets</a></li>
+            <li class="nav-item nav-link"><a class="text-white" href="#indentation">Indentation</a></li>
+            <li class="nav-item nav-link"><a class="text-white" href="#javadocs">JavaDocs</a></li> 
+            <!--<li class="nav-item nav-link"><a class="text-white" href="#constructingObjects">Constructing Objects</a></li>-->
+            <li class="nav-item nav-link"><a class="text-white" href="#other">Other</a></li>
+            <li class="nav-item nav-link"><a class="text-white" href="#grading">Grading Rubric</a></li>
+        </div>
+      </nav> 
+    <div class="container  p-3 my-3 border" id="general">
+        <h2>General</h2>
+        <p>This guide exists to provide structure to students. Why? There isn't a specific rule-set (although there are minimal standards)
+        on how you should write your Java code. My goal with this guide is to select one writing style for students so there is no guessing game.
+        </p>
+
+        <h4>Overall Structure</h4>
+        <p>
+            Your code will always start with a comment (JavaDoc) explaining who the author of the code is (including banner number) and a description
+        of the class (what is this class/program doing). You <b>must</b> write the description using your own words and not copy it from the assignment's
+        description.
+        </p>
+        <p>
+            Part of your marks on the assignments will be related to these guidelines. If you follow them you will get full marks 
+            on the Code Clarity part of the assignments.
+        </p>
+        <p>
+            You will ensure that your code has proper indentation (more on this further down), is properly commented, and respects the
+            80-character limit on each line (you can thank <a href="https://en.wikipedia.org/wiki/Punched_card">IBM for that</a>). The 80-character
+            limit makes it easier to read your code without the need of horizontal scrolling. If you are using IntelliJ, it shows a solid line on the
+            80-character mark.
+        </p>
+
+
+    </div>
+    <div class="container  p-3 my-3 border" id="comments">
+
+        <h2>Comments</h2>
+        <p>
+            You must fully comment your code. You can use both inline comments, multi-line comments, and JavaDocs.
+            Please assume that the person reading your code is familiarized with coding; avoid comments explaining Java's syntax.
+        </p>
+        <p>
+            Comments should be indented to the same level as the code they are commenting.
+        </p>
+
+        <h4>Inline Comments</h3>
+        Your inline comments should be above the line of code you are commenting. <b>It should not be on the right side of the line of code</b>
+        <pre class="w-75 mx-auto"><code class="language-java">
+//You can use double slash (//) for single line comments
+
+//Read and store the user's age so we can calculate the discount
+int userAge = kb.nextInt();
+        </code></pre>
+        <h4>Multi-line Comments</h3>
+        <pre class="w-75 mx-auto"><code class="language-java">
+/* 
+* You can use multi-line comments too!
+* Start with a slash star.
+* Every single line after will be a comment until
+* you close it with star slash
+*/
+        </code></pre>
+        <h4>How to Use Comments</h4>
+        <p>A comment can serve several different purpose in the context of a program:</p>
+        <ul>
+            <li><strong>A reminder </strong>to change something in the future or to 'comment out' code that you do not want to run.</li>
+            <li><strong>An explanation </strong>for what a class/method does.</li>
+            <li><strong>A goal or function </strong>for a specific line of code or block of code.</li>
+        </ul>
+    </div>
+
+    <div class="container  p-3 my-3 border" id="naming">
+        <h2>Naming variables, methods and classes</h2>
+        <p>
+            You must choose fully qualified names for your variables, methods and classes. For example, we should be able to 
+            understand what is your variable storing by its name. Same goes for methods and classes.<br>
+            <ul>
+                <li><strong>Variables</strong> must start with lowercase. You should use camelCase.</li>
+                <li><strong>Constants</strong> should be all in uppercase. You should use SCREAMING_SNAKE_CASE.</li>
+                <li><strong>Methods</strong> must start with lowercase. You should use camelCase.</li>
+                <li><strong>Classes</strong> must start with uppercase. </li>
+            </ul>
+        </p>
+        <div class="row">
+            <div class="col">
+                <div class="alert alert-success">
+                    <strong>Good Naming</strong>
+                  </div>
+                <pre><code class="language-java">
+public class Bicycle {
+    private String brandName;
+    private int currentGear;
+    private double currentSpeed;
+    private int currentCadence;
+
+    public Bicycle(String brandName){...}
+    public boolean changeGear(int gear){...}
+}
+                </code></pre>
+            </div>
+            <div class="col">
+                <div class="alert alert-danger">
+                    <strong>Bad Naming</strong>
+                </div>
+                <pre><code class="language-java">
+public class cycle {
+    private String name;
+    private int g;
+    private double spd;
+    private int c;
+
+    public cycle(String n){...}
+    public boolean newGear(int g){...}
+}
+                </code></pre>
+    </div>
+    </div>
+    </div>
+
+    <div class="container  p-3 my-3 border" id="brackets">
+        <h2>Curly Brackets</h2>
+        <p>
+            In Java, we use curly brackets (<code>{</code> and <code>}</code>) to delimit code blocks and scope (similar to <code>:</code> in python).
+            Java lets you omit the curly brackets if there is only one line after in a code block (such as an if statement). 
+            <span class="badge badge-pill badge-warning">Warning</span><strong>YOU MUST ALWAYS USE CURLY BRACKETS</strong>
+            <span class="badge badge-pill badge-warning">Warning</span>
+        </p>
+        <p>
+            You can choose to leave the opening curly bracket on the same line or add it to a new line, it is up to you. <strong>My personal
+            recommendation is that you keep on the same line.</strong> Chose one style and use it throughout your code consistently!
+        </p>
+
+        <div class="row">
+            <div class="col">
+                <div class="alert alert-success">
+                    <strong>Same Line</strong>
+                  </div>
+                <pre><code class="language-java">
+if(javaIsCool){
+
+}
+
+                </code></pre>
+            </div>
+            <div class="col">
+                <div class="alert alert-success">
+                    <strong>Next Line</strong>
+                  </div>
+                <pre><code class="language-java">
+if(javaIsCool)
+{
+    
+}
+                </code></pre>
+            </div>
+        </div>
+    </div>
+
+    <div class="container  p-3 my-3 border" id="indentation">
+        <h2>Indentation</h2>
+        <p>
+            You must indent your code (with 4 spaces OR 1 tab). The rule is fairly straightforward: every time you start a new
+            block with <code>{</code> you must increase the indentation. Every time you close a code block with <code>}</code>,
+            you must reduce the indentation. Simple, eh?
+        </p>
+        <div class="row">
+            <div class="col-7 mx-auto">
+                <div class="alert alert-success">
+                    <strong>Good Indentation</strong>
+                  </div>
+                <pre><code class="language-java">
+public class SumExample{
+    public static void main(String[] args){
+        int sum = 0;
+        for(int i = 0; i < 10; i = i + 2){
+            sum += i;
+        }
+        System.out.println(sum);
+    }
+}
+                </code></pre>
+            </div>
+        </div>
+            <div class="row">
+            <div class="col">
+                <div class="alert alert-danger">
+                    <strong>Bad Indentation</strong>
+                  </div>
+                <pre><code class="language-java">
+public class SumExample{
+public static void main(String[] args){
+        int sum = 0;
+    for(int i = 0; i < 10; i = i + 2){
+    sum += i;
+        }
+System.out.println(sum);
+}
+}
+                </code></pre>
+            </div>
+            <div class="col">
+                <div class="alert alert-danger">
+                    <strong>Bad Indentation</strong>
+                  </div>
+                <pre><code class="language-java">
+public class SumExample{
+public static void main(String[] args){
+int sum = 0;
+for(int i = 0; i < 10; i = i + 2){
+sum += i;
+}
+System.out.println(sum);
+}
+}
+                </code></pre>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container  p-3 my-3 border" id="javadocs">
+        <h2>JavaDocs</h2>
+        <p>
+            You will use JavaDoc comments to document your classes and methods. JavaDoc comments can be used later to create webpages
+            or PDFs with the documentation of your code. We will not generate those files in CSCI 1105.
+            <br>
+            JavaDoc comments start similar to multi-line comments. The difference is one extra star (*) on the first line. You start it
+            with <code>/**</code> and finish it with <code>*/</code>. You annotate your comments with tags that start with <code>@</code>
+        </p>
+        <h3>
+            Documenting classes
+        </h3>
+        <p>
+            You will use one comment block for each class you create. The first text in the class comment is a description (in your own words)
+            of the class. After the description, you can add any relevant tags. There are several tags you can use but you are only required to use one for classes: 
+            <code>@author</code>. Use the author tag for your name <strong>and your banner number</strong>
+        </p>
+
+        <pre class="w-75 mx-auto"><code class="language-java">
+/**
+* This class represents a bicycle with a set amount of gears. 
+* Objects from the bicycle's class will also keep track of their 
+* current velocity and current gear.
+* 
+* @author Juliano Franz - B00XXXXXX
+*/
+public class Bicycle {...}
+        </code></pre>
+
+        <h3>Documenting methods</h3>
+        <p>
+            Methods will start in a similar fashion as the classes. The first part of the comment is a description of the method. Then, you will add
+            one <code>@param</code> tag for each parameter variable of the method (or no tag if there aren't any parameters) and one <code>@return</code>
+            explaining the return value of the method. If the method does not return anything (e.g. <code>void</code>) then you should omit <code>@return</code>.
+            If your method throws an exception, you should also add the <code>@throws</code> tag.
+        </p>
+
+        <pre class="w-75 mx-auto"><code class="language-java">
+/**
+* Method used to change the current gear of the bicycle. If the gear passed as an argument
+* is outside the range of the bicycle's cassette the method will return false.
+* @param gear the gear we want to switch to. Must be greater than zero and less than maxGear
+* @return true if the new gear was withing the range of the cassette; false otherwise
+*/
+public boolean changeGear(int gear){...}
+
+/**
+* Getter for the current speed of the bicycle. Values are always greater than zero
+* @return the bicycle's current speed as a double.
+*/
+public double getCurrentSpeed(){...}
+        </code></pre>
+
+    </div>
+
+   <!-- <div class="container  p-3 my-3 border" id="constructingObjects">
+        <h2>Constructing Objects</h2>
+        <p>
+            In object-oriented programming you use Constructors to create objects from your classes. Constructors have the same name of class. In Java, you can overload constructors.
+            Here are some good guidelines regarding constructors for you to follow:
+        </p>
+        <ul>
+            <li>Initialize your instance variables (a.k.a. fields) in the constructor, not at the declaration</li>
+            <li>If you have a static field, such as a constant you must initialize at the declaration</li>
+            <li>If you have multiple constructors, try to combine their common code into a single constructor that gets called up by other constructors. Use the <code>this</code> keyword.</li>
+        </ul>
+        <div class="alert alert-success">
+            <strong>Example (JavaDocs omitted)</strong>
+          </div>
+        <pre><code class="language-java">
+public class Employee {
+    public static int serialCardNumbers = 0;
+    private String name;
+    private int cardNumber;
+    //Using String for the department is not the best solution...
+    private String department;
+
+    public Employee(String name, int cardNumber, String department){
+        this.name = name;
+        this.cardNumber = cardNumber;
+        this.department = department;
+    }
+
+    public Employee(String name, String department){
+        this(name,serialCardNumbers,department);
+        serialCardNumbers++;
+    }
+
+    public Employee(String name){
+        this(name, "Undefined");
+    }
+}
+        </code></pre>
+
+    </div>-->
+    <div class="container p-3 my-3 border", id="other">
+        <h2>Other details (that I could not find a category)</h2>
+        <h4>Comparing booleans</h4>
+        <p>
+            When comparing booleans do not use equals <code>true</code> or <code>false</code>. Compare the variable directly if you are testing for <code>true</code>
+            or negate the variable (with <code>!</code>) if you are testing for <code>false</code>
+        </p>
+
+        <div class="row">
+            <div class="col mx-auto">
+                <div class="alert alert-success">
+                    <strong>Good example</strong>
+                </div>
+                <pre><code class="language-java">
+if(haveCash){
+   System.out.println("Pay the man");
+}
+                </code></pre>
+            </div>
+            <div class="col">
+                <div class="alert alert-danger">
+                    <strong>Bad example</strong>
+                </div>
+                <pre><code class="language-java">
+if(haveCash == true){
+    System.out.println("Pay the man");
+    }
+                </code></pre>
+            </div>
+        </div>
+        <div class="row">
+                <div class="col mx-auto">
+                    <div class="alert alert-success">
+                        <strong>Good example</strong>
+                    </div>
+                    <pre><code class="language-java">
+if(!haveCash){
+   System.out.println("Run from the man");
+}
+                    </code></pre>
+            
+                </div>
+                <div class="col">
+                    <div class="alert alert-danger">
+                        <strong>Bad example</strong>
+                    </div>
+                    <pre><code class="language-java">
+if(haveCash == false){
+    System.out.println("Run from the man");
+}
+                    </code></pre>
+                </div>
+            </div>
+
+            <h4>Variable Types</h4>
+            <p>
+                Chose your variable types based on what you are trying to store. For example, if you are trying to store numbers that will never have decimal points
+                use <code>int</code>s instead of <code>double</code>s. 
+            </p>
+            <p>
+                We will use <code>double</code> as data type for floating point in Java not <code>float</code>.
+            </p>
+    </div>
+
+    <div class="container p-3 my-3 border", id="grading">
+        <h2>Grading rubric</h2>
+        <p>
+            When assessing code quality, a grading rubric is applied by markers in CSCI 1105 to assess code solutions and provide feedback.
+        </p>
+        <h4>Example</h4>
+        <a href="assets/CSCI 1105 - Code Quality Conventions and Standards.pdf" download>Download a Copy</a><br>
+        <iframe src="assets/CSCI 1105 - Code Quality Conventions and Standards.pdf" width="100%" height="900px"></iframe>
+       
+    </div>
+    
+    </body>
+
+</html>
